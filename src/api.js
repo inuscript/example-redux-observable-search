@@ -1,5 +1,6 @@
 import fetchJsonp from 'fetch-jsonp'
 import qs from 'querystring'
+import { push } from './logger'
 
 export const searchApi = (word) => {
   const baseURL = "https://ja.wikipedia.org/w/api.php"
@@ -8,7 +9,9 @@ export const searchApi = (word) => {
     format: "json",
     search: word
   }
-  return fetchJsonp(`${baseURL}?${qs.stringify(params)}`)
+  const url = `${baseURL}?${qs.stringify(params)}`
+push(`call:${url}`)
+  return fetchJsonp(url)
     .then( response => response.json() )
     .then( json => {
       return json[1]

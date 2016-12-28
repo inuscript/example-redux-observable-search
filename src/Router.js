@@ -3,6 +3,7 @@ import { HashRouter, Match, Link } from 'react-router'
 
 import AppMiddleware from './AppMiddleware';
 import AppObservable from './AppObservable';
+import Monitor from './Monitor';
 
 const Page = ({ title, children }) => (
   <div>
@@ -26,6 +27,7 @@ export default () => (
           <Page title="Observable Pattern"><AppObservable /></Page>
         } />
       </div>
+      <Monitor />
     </div>
   </HashRouter>
 )
