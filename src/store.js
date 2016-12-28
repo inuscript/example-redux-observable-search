@@ -6,11 +6,17 @@ import { epics } from './epic'
 
 const rootReducer = combineReducers(reducers, {})
 
-export const configureStore = () => {
+export const configureObservableStore = () => {
   return createStore(
     rootReducer,
-    // applyMiddleware(searchMiddleware)
     applyMiddleware(createEpicMiddleware(epics))
+  )
+}
+
+export const configureMiddlewareStore = () => {
+  return createStore(
+    rootReducer,
+    applyMiddleware(searchMiddleware)
   )
 }
 
