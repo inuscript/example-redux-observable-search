@@ -2,6 +2,7 @@ import fetchJsonp from 'fetch-jsonp'
 import qs from 'querystring'
 
 export const searchApi = (word) => {
+  console.log(new Date(), "CALL API", word)
   const baseURL = "https://ja.wikipedia.org/w/api.php"
   const params = {
     action: "opensearch",
