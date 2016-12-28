@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.8.4"
   },
+  "homepage": "https://inuscript.github.io/example-redux-observable-search/",
   "dependencies": {
     "axios": "^0.15.3",
     "fetch-jsonp": "^1.0.4",
@@ -13,6 +15,7 @@
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
+    "redux-devtools": "^3.3.1",
     "redux-observable": "^0.12.2",
     "redux-promise": "^0.5.3",
     "rxjs": "^5.0.2"
@@ -20,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "react-scripts build; gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
