@@ -1,5 +1,20 @@
 import fetchJsonp from 'fetch-jsonp'
 import qs from 'querystring'
+
+export const _searchApi = (word) => {
+  const baseURL = "https://ja.wikipedia.org/w/api.php"
+  const params = {
+    action: "opensearch",
+    format: "json",
+    search: word
+  }
+  const url = `${baseURL}?${qs.stringify(params)}`
+  return fetchJsonp(url)
+    .then( response => response.json() )
+    .then( json => json[1])
+}
+
+//////////////////////////
 import { push } from './logger'
 
 export const searchApi = (word) => {
@@ -10,7 +25,7 @@ export const searchApi = (word) => {
     search: word
   }
   const url = `${baseURL}?${qs.stringify(params)}`
-push(`call:${url}`)
+  push(`call:${url}`)
   return fetchJsonp(url)
     .then( response => response.json() )
     .then( json => {
@@ -18,6 +33,7 @@ push(`call:${url}`)
     })
 
 }
+
 
 // eslint-disable-next-line
 const parseJson = (json) => {
