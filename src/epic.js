@@ -13,18 +13,6 @@ const searchEpic = (action$) => (
     .map( result => loadResult(result) )
 )
 
-const sandboxDebounceEpic = (action$) => (
-  action$.ofType(CHANGE_INPUT)
-    .map( ({payload}) => payload )
-    .do( (payload) => console.log("START SMART", payload) )
-    .debounceTime(400)
-    .distinctUntilChanged()
-    .switchMap( payload => payload)
-    .do( (payload) => console.log("END SMART", payload))
-    .mapTo({type: "SINK" }) // 同じactionそのまま返すと無限ループするので、テキトーなactionにして返す
-)
-
 export const epics = combineEpics(
-  searchEpic,
-  sandboxDebounceEpic
+  searchEpic
 )
