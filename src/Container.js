@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { actionCreators } from './actions'
+import { changeInput } from './actions'
 
 const Main = ( { word, result, changeInput }) => {
   return <div>
@@ -12,4 +12,4 @@ const Main = ( { word, result, changeInput }) => {
   </div>
 }
 
-export default connect(state => state, actionCreators)(Main)
+export default connect(state => state, { changeInput })(Main)
