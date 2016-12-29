@@ -8,7 +8,6 @@ const result = (state = [], action ) => {
   }
 }
 
-
 const word = (state = "", action ) => {
   switch(action.type){
   case CHANGE_INPUT:

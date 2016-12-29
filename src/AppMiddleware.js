@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore } from './store-middleware'
-import Container from './Container'
+import SearchPediaContainer from './SearchPediaContainer'
 
 export default class App extends React.Component{
   constructor(){
@@ -11,7 +11,7 @@ export default class App extends React.Component{
   render(){
     return (
       <Provider store={this.store} >
-        <Container />
+        <SearchPediaContainer />
       </Provider>
     )
   }

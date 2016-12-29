@@ -1,4 +1,5 @@
-import Rx from 'rxjs'
+import 'rxjs'
+
 import { CHANGE_INPUT, loadResult } from './actions'
 import { combineEpics } from 'redux-observable'
 import { searchApi } from './api'
@@ -15,18 +16,11 @@ const searchEpic = (action$) => (
 const sandboxDebounceEpic = (action$) => (
   action$.ofType(CHANGE_INPUT)
     .map( ({payload}) => payload )
-    .map( (payload) => {
-      console.log("START SMART", payload)
-      return payload
-    })
+    .do( (payload) => console.log("START SMART", payload) )
     .debounceTime(400)
     .distinctUntilChanged()
-    .switchMap( input => {
-      console.log("END SMART", input)
-      // return input
-      // return {type: "SINK" }
-      return Rx.Observable.of(input)
-    })
+    .switchMap( payload => payload)
+    .do( (payload) => console.log("END SMART", payload))
     .mapTo({type: "SINK" }) // 同じactionそのまま返すと無限ループするので、テキトーなactionにして返す
 )
 
