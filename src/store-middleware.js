@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from "redux"
-import { reducers } from './ducks'
+import { reducers } from './reducers'
 import { searchMiddleware } from './middleware'
 
 export const configureStore = () => {

@@ -1,6 +1,6 @@
 // raw middleware
 
-import { actions, actionCreators } from './ducks'
+import { actions, actionCreators } from './actions'
 import { searchApi } from './api'
 
 export const searchMiddleware = store => next => action => {

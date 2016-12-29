@@ -1,5 +1,5 @@
 import Rx from 'rxjs'
-import { actions, actionCreators } from './ducks'
+import { actions, actionCreators } from './actions'
 import { combineEpics } from 'redux-observable'
 import { searchApi } from './api'
 

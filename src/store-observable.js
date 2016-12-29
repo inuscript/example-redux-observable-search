@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux"
 import { createEpicMiddleware } from "redux-observable"
-import { reducers } from './ducks'
+import { reducers } from './reducers'
 import { epics } from './epic'
 
 export const configureStore = () => {

@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { actionCreators } from './ducks'
+import { actionCreators } from './actions'
 
 const Main = ( { word, result, changeInput }) => {
   return <div>
